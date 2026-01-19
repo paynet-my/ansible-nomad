@@ -68,14 +68,14 @@
   tags: installation
   delegate_to: 127.0.0.1
 
-- name: Unarchive Nomad CNI
-  ansible.builtin.unarchive:
-    src: "{{ role_path }}/files/{{ nomad_cni_pkg }}"
-    dest: "{{ install_temp.path }}/"
-    creates: "{{ install_temp.path }}/bridge"
-  become: false
-  tags: installation
-  delegate_to: 127.0.0.1
+#- name: Unarchive Nomad CNI
+#  ansible.builtin.unarchive:
+#    src: "{{ role_path }}/files/{{ nomad_cni_pkg }}"
+#    dest: "{{ install_temp.path }}/"
+#    creates: "{{ install_temp.path }}/bridge"
+#  become: false
+#  tags: installation
+#  delegate_to: 127.0.0.1
 
 - name: Install Nomad CNI
   ansible.builtin.copy:
@@ -89,10 +89,10 @@
   tags: installation
   notify: Restart nomad
 
-- name: Cleanup
-  ansible.builtin.file:
-    path: "{{ install_temp.path }}"
-    state: absent
-  become: false
-  tags: installation
-  delegate_to: 127.0.0.1
+#- name: Cleanup
+#  ansible.builtin.file:
+#    path: "{{ install_temp.path }}"
+#    state: absent
+#  become: false
+#  tags: installation
+#  delegate_to: 127.0.0.1
