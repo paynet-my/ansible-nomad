@@ -87,6 +87,10 @@ vault {
     token = "{{ nomad_vault_token }}"
 {% endif %}
     namespace = "{{ nomad_vault_namespace }}"
+    default_identity {
+        aud  = ["{{ nomad_vault_workload_identity_aud }}"]
+        ttl  = "{{ nomad_vault_workload_identity_ttl }}"
+    }
 }
 
 {% if nomad_telemetry | default(False) | bool == True %}

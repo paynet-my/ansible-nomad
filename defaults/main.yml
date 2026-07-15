@@ -179,6 +179,8 @@ nomad_vault_tls_server_name: ""
 nomad_vault_tls_skip_verify: false
 nomad_vault_token: ""
 nomad_vault_namespace: ""
+nomad_vault_workload_identity_aud: ""
+nomad_vault_workload_identity_ttl: ""
 
 ### Docker
 nomad_docker_enable: "{{ lookup('env', 'NOMAD_DOCKER_ENABLE') | default('false', true) }}"
